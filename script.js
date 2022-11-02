@@ -1,78 +1,51 @@
+const playGame = function() {
+  var yourWin = 0;
+  var pcWin = 0;
+  var gamesPlayed = 20;
 
-function playGame() {
- 
+  for(var i = 0; i <= gamesPlayed; i++) {
+      var pcTurn = ['Rock', 'Paper', 'Scissor']
+      var randomNumber = Math.floor(Math.random() * pcTurn.length);
+      var userPicks = prompt('Press R for rock, P for paper, S for scissor');
+      var pcPicks = pcTurn[randomNumber];
+      var result = '';
 
-    // COMPUTER BRAIN
-      function computerInput() {
-        var computerPicks = ''
-        var randomNumber = Math.floor(Math.random() * 2);
-        if (randomNumber === 1) {
-          computerPicks = 'r';
-        }
-        else if (randomNumber === 2) {
-          computerPicks = 'p'
-        }
-        else {
-          computerPicks = 's'
-        }
-        return computerPicks;
+      if(userPicks === 'r' && pcPicks === 'Paper') {
+          result = 'You win'
+          yourWin += 1
       }
-    
-      var wins = 0;
-      var computerWins = 0;
-      var gamesNum = 13
+      else if (userPicks === 's' && pcPicks === 'Rock') {
+          result = 'You lose'
+          pcWin += 1
+      }
+      else if (userPicks === 'p' && pcPicks === 'Rock') {
+          result = 'You win'
+          yourWin += 1
+      }
+      else if (userPicks === 'p' && pcPicks === 'Scissor') {
+          result = 'You lose'
+          pcWin += 1
+      }
+      else if (userPicks === 'r' && pcPicks === 'Paper') {
+          result = 'You lose'
+          pcWin += 1
       
-      for(var i = 0; i <= gamesNum; i++) {
-        // Start game
-        var userInput = prompt("R = Rock, P = Paper, S = Scissor")
+      }
+      else if (userPicks === 's' && pcPicks === 'Scissor') {
+          result = 'You win'
+          yourWin += 1
+      }
+      else {
+          result = 'Tie'
+      }
+
+      
+      alert(result + ' You have ' + yourWin + 'win(s) - PC has ' + pcWin + ' win(s)')
+
+}
 
 
-     
-        if (userInput === computerInput()) {
-           alert('Tie')
-        }
-        // ROCK VS SCISSOR
-        else if (userInput.toLowerCase() === 'r' && computerInput() === 's') {
-          wins += 1;
-          alert('You win!')
-          
-          
-        }  else if (userInput.toLowerCase() === 's' && computerInput() === 'r') {
-          //console.log('You picked: Scissor  \nComputer picks: Rock')
-          computerWins += 1;
-          alert('PC win!')
-        }
-    
-        // PAPER VS ROCK
-          else if (userInput.toLowerCase() === 'p' && computerInput() === 'r') {
-          //console.log('You picked: Paper  \nComputer picks: Rock')
-          wins += 1;
-          alert('You win!')
-          
-        }  else if (userInput.toLowerCase() === 'r' && computerInput() === 'p') {
-          //console.log('You picked: Rock  \nComputer picks: Paper')
-          computerWins += 1;
-          alert('PC win!')
-        }
-    
-        // SCISSOR VS PAPER
-    
-          else if (userInput.toLowerCase() === 's' && computerInput() === 'p') {
-          //console.log('You picked: Scissor \nComputer picks: Paper')
-          wins += 1;
-          alert('You win!')
-          
-        }  else if (userInput.toLowerCase() === 'p' && computerInput() === 's') {
-          //console.log('You picked: Paper  \nComputer picks: Scissor')
-          computerWins += 1;
-          alert('PC win!')
-        }
-        
-       }
 
-       alert('You win: ' + wins + 'PC win: ' + computerWins);
-       
-    
-    }
-    
+}
+
 playGame()

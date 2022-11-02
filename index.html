@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,34 @@
     <title>Rock Paper Scissor</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    
-    
 
+<body>
+    <div class="father">
+        <div class="main">
+            
+            <div class="child">
+                <header>
+                    <h1 class="header">Do you want to play Rock, Paper, Scissor?</h1>
+                    <button type="button" onclick="playGame()">Yes I want to play</button>
+                    <button type="button" onclick="showRules()">Rules</button>
+                    <p id="rules">10 games are played</p>
+                </header>
+                <container>
+                    <h2>Game Score</h2>
+                    
+                </container>
+                <div class="players">
+                    <h3 id="personName"></h3>
+                    <p id="userWin"></p>
+                    <h3 id="robot"></h3>
+                    <p id="pcWin"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="script.js"></script>
 </body>
+
 </html>

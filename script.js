@@ -1,7 +1,7 @@
 const playGame = function() {
   var yourWin = 0;
   var pcWin = 0;
-  var gamesPlayed = 20;
+  var gamesPlayed = 10;
 
   for(var i = 0; i <= gamesPlayed; i++) {
       var pcTurn = ['Rock', 'Paper', 'Scissor']
@@ -40,12 +40,32 @@ const playGame = function() {
       }
 
       
-      alert(result + ' You have ' + yourWin + 'win(s) - PC has ' + pcWin + ' win(s)')
+      alert(result)
 
 }
 
+document.getElementById('userWin').innerHTML = yourWin;
+document.getElementById('pcWin').innerHTML = pcWin;
 
 
 }
 
-playGame()
+function showRules () {
+  var x = document.getElementById('rules');
+  if(x.style.display === 'block') {
+    x.style.display = 'none';
+  } else {
+    x.style.display = 'block'
+  }
+  
+ 
+  
+}
+
+var personName = prompt('Please enter your name')
+
+document.getElementById('personName').innerHTML = personName;
+document.getElementById('robot').innerHTML = 'Robot';
+
+
+

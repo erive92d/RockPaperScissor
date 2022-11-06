@@ -1,71 +1,102 @@
-const playGame = function() {
-  var yourWin = 0;
-  var pcWin = 0;
-  var gamesPlayed = 10;
+//robot function
+function robotBrain() {
+    //random number () * 3
+    var randomNum = Math.floor(Math.random() * 3);
+    //empty robot picks robot picks = ''
+    var robotPicks = '';
+    //if random number ===  0
+    if (randomNum === 0) {
+        //robotpicks = rock
+        robotPicks = 'Rock';
+        //else if random number === 1
+    } else if (randomNum === 1) {
+        //robotpicks = paper
+        robotPicks = 'Paper';
+    }
+    //else robotpicks = scissor
+    else {
+        robotPicks = 'Scissor';
+    }
+    //return robotpicks
+    return robotPicks;
+}
 
-  for(var i = 0; i <= gamesPlayed; i++) {
-      var pcTurn = ['Rock', 'Paper', 'Scissor']
-      var randomNumber = Math.floor(Math.random() * pcTurn.length);
-      var userPicks = prompt('Press R for rock, P for paper, S for scissor');
-      var pcPicks = pcTurn[randomNumber];
-      var result = '';
 
-      if(userPicks === 'r' && pcPicks === 'Paper') {
-          result = 'You win'
-          yourWin += 1
-      }
-      else if (userPicks === 's' && pcPicks === 'Rock') {
-          result = 'You lose'
-          pcWin += 1
-      }
-      else if (userPicks === 'p' && pcPicks === 'Rock') {
-          result = 'You win'
-          yourWin += 1
-      }
-      else if (userPicks === 'p' && pcPicks === 'Scissor') {
-          result = 'You lose'
-          pcWin += 1
-      }
-      else if (userPicks === 'r' && pcPicks === 'Paper') {
-          result = 'You lose'
-          pcWin += 1
-      
-      }
-      else if (userPicks === 's' && pcPicks === 'Scissor') {
-          result = 'You win'
-          yourWin += 1
-      }
-      else {
-          result = 'Tie'
-      }
+function playOrNot() {
+    var text = 'Do you want to continue?';
+    var gameScore = 'SCORE\nYour wins: ' + userWins + '\nPC wins: ' + pcWins + '\nTIE: ' + tieGames
+    if (confirm(text) == true) {
+        text = playGame();
+    } else {
+        alert(gameScore);
+        if (userWins > pcWins) {
+            alert('You beat PC')
+        } else {
+            alert('PC beats you')
+        }
+    }
+}
 
-      
-      alert(result)
+
+function playGame() {
+    var userOption = prompt('R for Rock\nP for Paper\nS for Scissor')
+
+    if (userOption === 'r' && robotBrain() === 'Scissor') {
+        alert('You: Rock\nPC: Scissor\nYou win!');
+        userWins += 1;
+    } else if (userOption === 's' && robotBrain() === 'Paper') {
+        alert('You: Scissor\nPC: Paper\nYou win!');
+        userWins += 1;
+    } else if (userOption === 'p' && robotBrain() === 'Rock') {
+        alert('You: Paper\nPC: Rock\nYou win!');
+        userWins += 1;
+    } else if (userOption === 's' && robotBrain() === 'Rock') {
+        alert('You: Scissor\nPC: Rock\nYou lose!');
+        pcWins += 1;
+    } else if (userOption === 'p' && robotBrain() === 'Scissor') {
+        alert('You: Paper\nPC: Scissor\nYou lose!');
+        pcWins += 1;
+    } else if (userOption === 'r' && robotBrain() === 'Paper') {
+        alert('You: Rock\nPC: Paper\nYou lose!');
+        pcWins += 1;
+    }
+    else {
+        alert('Tie');
+        tieGames += 1
+    }
+
+    playOrNot();
 
 }
 
-document.getElementById('userWin').innerHTML = yourWin;
-document.getElementById('pcWin').innerHTML = pcWin;
+var userWins = 0;
+var pcWins = 0;
+var tieGames = 0
+
+var btn = document.querySelector('#game-score');
+var showScore = document.querySelector('#show-score');
+
+document.getElementById('show-score').innerHTML = 'coming soon..'
+
+btn.addEventListener('click', () => {
+    if(showScore.style.display === 'block') {
+        showScore.style.display = 'none';
+    } else {
+        showScore.style.display = 'block';
+    }
+})
 
 
-}
+var rulesBtn = document.querySelector('#rules');
+var rulesShow = document.querySelector('#rules-show');
 
-function showRules () {
-  var x = document.getElementById('rules');
-  if(x.style.display === 'block') {
-    x.style.display = 'none';
-  } else {
-    x.style.display = 'block'
-  }
-  
- 
-  
-}
+rulesBtn.addEventListener('click', () => {
+    if(rulesShow.style.display === 'block') {
+        rulesShow.style.display = 'none'
+    } else {
+        rulesShow.style.display = 'block';
+    }
+})
 
-var personName = prompt('Please enter your name')
-
-document.getElementById('personName').innerHTML = personName;
-document.getElementById('robot').innerHTML = 'Robot';
-
-
+//HTML STUFF
 

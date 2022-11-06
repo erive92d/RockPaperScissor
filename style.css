@@ -1,91 +1,55 @@
 * {
+    margin: 0;
+    padding: 0;
     font-family: monospace;
 }
 
+
 body {
-    background-color: burlywood;
-    
-}
-
-.father {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10%;
-    flex-wrap: wrap;
-}
-
-.main {
-    
-    background-image: linear-gradient(rgb(49, 36, 36),rgb(114, 212, 212));
-    width: 40%;
-    height: 700px;
-    border: 5px solid rgb(200, 226, 107);
-    border-radius: 10%;
-    display: flex;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-}
-.header {
-    margin: auto;
-    border: 3px solid rgb(243, 231, 231);
-    border-radius: 30px;
-    padding: 5%;
-    font-size: 200%;
-    width: 50%;
-    color: rgb(243, 231, 231);
-
-}
-
-header button {
-    display: block;
-    margin: 5% auto;
-    
-    
-}
-container {
-    display: flex;
-    justify-content: center;
-}
-
-container h2 {
-    display: flex;
-    margin: auto;
-    color: rgb(243, 231, 231);
-
-}
-.players {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin: auto;
-    
-}
-.players h3 {
-    color: white;
-    font-size: 140%;
-    border: 3px solid white;
-    padding: 1%;
-    border-radius: 10px;
-    
+    height: 500px;
 }
 
-#userWin, #pcWin {
-    color: yellow;
-    font-size: 130%;
+header {
+    display:flex;
+    justify-content: center;
 }
-#rules {
-    color:red;
-    border: 2px solid white;
-    border-radius: 5px;
-    margin: 5% auto;
-    padding: 2% 0;
+
+h2 {
+    background-color: red;
+    font-size: 150%;
+    width: 50%;
+    margin: auto;
+    border: 3px solid black;
+}
+
+main {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
     width: 30%;
-    background-color: black;
     text-align: center;
-    display: none;
+    border: 5px solid gray;
+    padding: 3% 0;
 
-   
 }
 
+main button {
+    margin: 5% 0;
+}
+
+#show-score{
+    color: white;
+    width: 70%;
+    margin: auto;
+    padding: 2%;
+    border: 3px solid purple;
+    background: black;   
+    display: none;
+}
+
+#rules-show {
+    display: none;
+}

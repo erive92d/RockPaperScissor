@@ -1,41 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissor</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Rock paper scissor</title>
+    <link rel="stylesheet" href="style.css" class="css">
 </head>
-
 <body>
-    <div class="father">
-        <div class="main">
-            
-            <div class="child">
-                <header>
-                    <h1 class="header">Do you want to play Rock, Paper, Scissor?</h1>
-                    <button type="button" onclick="playGame()">Yes I want to play</button>
-                    <button type="button" onclick="showRules()">Rules</button>
-                    <p id="rules">10 games are played</p>
-                </header>
-                <container>
-                    <h2>Game Score</h2>
-                    
-                </container>
-                <div class="players">
-                    <h3 id="personName"></h3>
-                    <p id="userWin"></p>
-                    <h3 id="robot"></h3>
-                    <p id="pcWin"></p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <header><h1>ROCK PAPER SCISSOR VS ROBOT</h1></header>
+    <main>
+        <h2>MAIN MENU</h2>
+        <h3><button type="button" id="play-game" onclick="playGame()">Play game</button></h3>
+        <h3><button type="button" id="game-score">Game score</button></h3>
+        <div id="show-score"></div>
+        <h3><button type="button" id="rules">Rules</button></h3>
+        <div id="rules-show">Whoever has the most wins, take the trophy</div>
+
+
+
+    </main>
+    
+
+
 
 
     <script src="script.js"></script>
+    
 </body>
-
 </html>
